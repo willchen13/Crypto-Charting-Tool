@@ -1,17 +1,10 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
 const BarChart = ({data}) => {
-  const labels = [];
-  const dataSets = []
-  //get only keys
-  for(var key in data) {
-    labels.push(Object.keys(data));
-  }
-  //get only values
-  for(var key in data) {
-    dataSets.push(Object.values(data));
-  }
+  const labels = Object.keys(data);
+  const dataSets = Object.values(data);
+  
   const state = {
     labels: labels,
     datasets: [

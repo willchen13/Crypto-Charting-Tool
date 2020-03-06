@@ -33,7 +33,8 @@ const Form = ({changeDates}) => {
     </form>
 
     <br></br>
-    
+
+    <label> Graph Type: </label>
     <select>
         <option value="bar">Bar Chart</option>
         <option value="line">Line Graph</option>
