@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
-import axios from 'axios';
 
-const Form = ({changeDates}) => {
+const Form = ({changeDates, changeGraph}) => {
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
+  const [graph, setGraph] = useState('');
+
+  const handleGraphChange = (e) => {
+   if(e.target.value === 'bar') {
+     setGraph(e.target.value);
+     console.log('what is e.target.value', e.target.value);
+   }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +23,7 @@ const Form = ({changeDates}) => {
     } else if(end.length !== 10 && formatFailed(end)){
       alert('End date must be like: YYYY-MM-DD');
     } else {
+      changeGraph(graph);
       changeDates(start,end);
     };
   }
@@ -25,13 +33,13 @@ const Form = ({changeDates}) => {
     if(str.length !== 3) {
       return true;
       //check if year is length 4 and a number greater than 2008 (year bitcoin was invented! one year after to be safe)
-    } else if(str[0].length !== 4 || isNaN(str[0]) || str[0] > 2008) {
+    } else if(str[0].length !== 4 || isNaN(str[0]) || str[0] < 2008) {
       return true;
       //check if month is length 2 and a number between 1 and 12
-    } else if(str[1].length !== 2 || isNaN(str[1]) || (str[1] >= 1 && str[1] <= 12)) {
+    } else if(str[1].length !== 2 || isNaN(str[1]) || (str[1] < 1 && str[1] > 12)) {
       return true;
       //check if day is a length 2 and a number between 1 and 31
-    } else if(str[2].length !== 2 || isNaN(str[2]) || (str[2] >= 1 && str[2] <= 31)) {
+    } else if(str[2].length !== 2 || isNaN(str[2]) || (str[2] < 1 && str[2] > 31)) {
       return true;
     } else {
       return false;
@@ -45,7 +53,6 @@ const Form = ({changeDates}) => {
       setEnd(e.target.value);
     }
   }
-
 
   return(
     <>
@@ -64,11 +71,12 @@ const Form = ({changeDates}) => {
     <br></br>
 
     <label> Graph Type: </label>
-    <select>
-        <option value="bar">Bar Chart</option>
-        <option value="line">Line Graph</option>
-        <option selected value="timeSeries">Time Series</option>
-        <option value="pie">Pie Graphs</option>
+    <select onChange={(e)=>{handleGraphChange(e)}}>
+        <option selected> Select </option>
+        <option value="bar" >Bar Chart</option>
+        <option value="line" >Line Graph</option>
+        <option value="timeSeries" >Time Series</option>
+        <option value="pie" >Pie Graphs</option>
     </select>
 
     </>
