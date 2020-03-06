@@ -8,9 +8,14 @@ const Form = ({changeDates, changeGraph}) => {
   const handleGraphChange = (e) => {
    if(e.target.value === 'bar') {
      setGraph(e.target.value);
-     console.log('what is e.target.value', e.target.value);
+   } else if(e.target.value === 'line') {
+     setGraph(e.target.value);
+   } else if(e.target.value === 'pie') {
+     setGraph(e.target.value);
+   } else if(e.target.value === 'timeSeries')
+     setGraph(e.target.value);
    }
-  }
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
