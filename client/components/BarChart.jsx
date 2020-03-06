@@ -24,7 +24,7 @@ const BarChart = ({data}) => {
           options={{
             title:{
               display:true,
-              text:'Price',
+              text:`Time Series Bar Chart for Bitcoin prices from ${labels[0]} to ${labels[labels.length-1]}`,
               fontSize:20
             },
             legend:{

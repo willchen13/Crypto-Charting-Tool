@@ -12,8 +12,7 @@ const Form = ({changeDates, changeGraph}) => {
      setGraph(e.target.value);
    } else if(e.target.value === 'pie') {
      setGraph(e.target.value);
-   } else if(e.target.value === 'timeSeries')
-     setGraph(e.target.value);
+   }
    }
   
 
@@ -80,7 +79,6 @@ const Form = ({changeDates, changeGraph}) => {
         <option selected> Select </option>
         <option value="bar" >Bar Chart</option>
         <option value="line" >Line Graph</option>
-        <option value="timeSeries" >Time Series</option>
         <option value="pie" >Pie Graphs</option>
     </select>
 
