@@ -74,12 +74,11 @@ const Form = ({changeDates, changeGraph}) => {
 
     <br></br>
 
-    <label> Graph Type: </label>
-    <select onChange={(e)=>{handleGraphChange(e)}}>
-        <option selected> Select </option>
-        <option value="bar" >Bar Chart</option>
-        <option value="line" >Line Graph</option>
-        <option value="pie" >Pie Graphs</option>
+    <label> Time Series Graph Type: </label>
+    <select onChange={(e)=>{handleGraphChange(e)}} defaultValue='line'>
+        <option value="bar">Bar Chart</option>
+        <option value="line">Line Graph</option>
+        <option value="pie">Pie Graphs</option>
     </select>
 
     </>
