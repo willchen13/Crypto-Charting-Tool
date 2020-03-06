@@ -9,7 +9,7 @@ Crypto Charting Tool
 
 ## Usage
 
-*Single Page Application for viewing historical price data for any cryptocurrency.
+*Single Page Application for viewing historical price data for any cryptocurrency. “Powered by CoinDesk”, https://www.coindesk.com/price/bitcoin.
 
 ## Requirements
 
