@@ -19,6 +19,7 @@ const Form = ({changeDates}) => {
   }
 
   return(
+    <>
     <form>
         <label>
         Start Date:
@@ -30,6 +31,17 @@ const Form = ({changeDates}) => {
         </label>
         <input type="submit" value="Submit" onClick={(e)=> {handleSubmit(e)}}/>
     </form>
+
+    <br></br>
+    
+    <select>
+        <option value="bar">Bar Chart</option>
+        <option value="line">Line Graph</option>
+        <option selected value="timeSeries">Time Series</option>
+        <option value="pie">Pie Graphs</option>
+    </select>
+
+    </>
   );
 };
 
